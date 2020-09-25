@@ -8,8 +8,18 @@ class Pessoa:
         self.nome = nome
         self.filhos = list(filhos)
 
+    # Metodo de instancia
     def cumprimentar(self):
         return 'Olá '+self.nome
+
+    # Metodo de classe (Nao depende da classe)
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
 
 
 if __name__ == '__main__':
@@ -32,3 +42,6 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(luiz.olhos)
     print(geison.olhos)
+    print(Pessoa.nome_e_atributos_de_classe(), luiz.nome_e_atributos_de_classe())
+
+
