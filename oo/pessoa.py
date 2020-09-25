@@ -16,3 +16,8 @@ if __name__ == '__main__':
     print(luiz.cumprimentar())
     for filho in luiz.filhos:
         print(filho.nome)
+
+    luiz.sobrenome = 'Nervo'
+    del luiz.filhos
+    print(luiz.__dict__)
+    print(geison.__dict__)
