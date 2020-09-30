@@ -96,10 +96,8 @@ class Motor:
         self.velocidade += 1
 
     def frear(self):
-        if self.velocidade < 2:
-            self.velocidade = 0
-        else:
-            self.velocidade -= 2
+        self.velocidade -= 2
+        self.velocidade = max(0, self.velocidade)
 
 
 class Direcao:
@@ -110,14 +108,12 @@ class Direcao:
         self.valor = self.direcoes[self.index]
 
     def girar_a_direita(self):
-        self.index += 1
-        self.index = 0 if self.index >= 4 else self.index
+        self.index = (self.index + 1) % 4
 
         self.valor = self.direcoes[self.index]
 
     def girar_a_esquerda(self):
-        self.index -= 1
-        self.index = 3 if self.index < 0 else self.index
+        self.index = (self.index - 1) % 4
 
         self.valor = self.direcoes[self.index]
 
