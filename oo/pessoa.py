@@ -10,7 +10,7 @@ class Pessoa:
 
     # Metodo de instancia
     def cumprimentar(self):
-        return 'Olá '+self.nome
+        return 'Olá ' + self.nome
 
     # Metodo de classe (Nao depende da classe)
     @staticmethod
@@ -22,11 +22,15 @@ class Pessoa:
         return f'{cls} - olhos {cls.olhos}'
 
 
+class Homem(Pessoa):
+    pass
+
+
 if __name__ == '__main__':
     geison = Pessoa(nome='Geison')
 
-   # Atributo complexo
-    luiz = Pessoa(geison, nome='Luiz')
+    # Atributo complexo
+    luiz = Homem(geison, nome='Luiz')
     print(luiz.cumprimentar())
     for filho in luiz.filhos:
         print(filho.nome)
@@ -37,11 +41,11 @@ if __name__ == '__main__':
     print(luiz.__dict__)
     print(geison.__dict__)
 
-    luiz.olhos=3
-    Pessoa.olhos=1
+    luiz.olhos = 3
+    Pessoa.olhos = 1
     print(Pessoa.olhos)
     print(luiz.olhos)
     print(geison.olhos)
     print(Pessoa.nome_e_atributos_de_classe(), luiz.nome_e_atributos_de_classe())
-
-
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(luiz, Pessoa))
