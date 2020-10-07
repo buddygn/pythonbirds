@@ -42,7 +42,6 @@ class AtorTestes(TestCase):
         self.assertEqual(0.3, x)
         self.assertEqual(0.5, y)
 
-
     def teste_colisao_entre_atores_ativos(self):
         """
         Teste de colisão entre dois atores
