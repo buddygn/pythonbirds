@@ -10,7 +10,7 @@ class Pessoa:
 
     # Metodo de instancia
     def cumprimentar(self):
-        return 'Olá ' + self.nome
+        return 'Olá, meu nome é ' + self.nome
 
     # Metodo de classe (Nao depende da classe)
     @staticmethod
@@ -23,11 +23,16 @@ class Pessoa:
 
 
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_pai = super(Homem, self).cumprimentar()
+        return f'{cumprimentar_pai} \nAperto de mao'
+
+class Mutante(Pessoa):
+    olhos = 3
 
 
 if __name__ == '__main__':
-    geison = Pessoa(nome='Geison')
+    geison = Mutante(nome='Geison')
 
     # Atributo complexo
     luiz = Homem(geison, nome='Luiz')
@@ -41,7 +46,7 @@ if __name__ == '__main__':
     print(luiz.__dict__)
     print(geison.__dict__)
 
-    luiz.olhos = 3
+    # luiz.olhos = 3
     Pessoa.olhos = 1
     print(Pessoa.olhos)
     print(luiz.olhos)
@@ -49,3 +54,8 @@ if __name__ == '__main__':
     print(Pessoa.nome_e_atributos_de_classe(), luiz.nome_e_atributos_de_classe())
     pessoa = Pessoa('Anonimo')
     print(isinstance(luiz, Pessoa))
+
+    print(geison.olhos)
+
+    print(geison.cumprimentar())
+    print(luiz.cumprimentar())
